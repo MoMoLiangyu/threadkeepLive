@@ -15,6 +15,8 @@
 		AA62BDD9247B72D4008BED5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA62BDD7247B72D4008BED5B /* LaunchScreen.storyboard */; };
 		AA62BDDC247B72D4008BED5B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AA62BDDB247B72D4008BED5B /* main.m */; };
 		AA62BDE4247B76C6008BED5B /* MA_ThreadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AA62BDE3247B76C6008BED5B /* MA_ThreadVC.m */; };
+		AAB804E2248F7AE30044CDEF /* MA_Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB804E1248F7AE30044CDEF /* MA_Thread.m */; };
+		AAB804E52490CC550044CDEF /* MA_ThreadDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AAB804E42490CC550044CDEF /* MA_ThreadDemoVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,10 @@
 		AA62BDDB247B72D4008BED5B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AA62BDE2247B76C6008BED5B /* MA_ThreadVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MA_ThreadVC.h; sourceTree = "<group>"; };
 		AA62BDE3247B76C6008BED5B /* MA_ThreadVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MA_ThreadVC.m; sourceTree = "<group>"; };
+		AAB804E0248F7AE30044CDEF /* MA_Thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MA_Thread.h; sourceTree = "<group>"; };
+		AAB804E1248F7AE30044CDEF /* MA_Thread.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MA_Thread.m; sourceTree = "<group>"; };
+		AAB804E32490CC550044CDEF /* MA_ThreadDemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MA_ThreadDemoVC.h; sourceTree = "<group>"; };
+		AAB804E42490CC550044CDEF /* MA_ThreadDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MA_ThreadDemoVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,10 @@
 				AA62BDCD247B72D2008BED5B /* SceneDelegate.m */,
 				AA62BDE2247B76C6008BED5B /* MA_ThreadVC.h */,
 				AA62BDE3247B76C6008BED5B /* MA_ThreadVC.m */,
+				AAB804E32490CC550044CDEF /* MA_ThreadDemoVC.h */,
+				AAB804E42490CC550044CDEF /* MA_ThreadDemoVC.m */,
+				AAB804E0248F7AE30044CDEF /* MA_Thread.h */,
+				AAB804E1248F7AE30044CDEF /* MA_Thread.m */,
 				AA62BDCF247B72D2008BED5B /* ViewController.h */,
 				AA62BDD0247B72D2008BED5B /* ViewController.m */,
 				AA62BDD2247B72D2008BED5B /* Main.storyboard */,
@@ -153,7 +163,9 @@
 			files = (
 				AA62BDD1247B72D2008BED5B /* ViewController.m in Sources */,
 				AA62BDCB247B72D2008BED5B /* AppDelegate.m in Sources */,
+				AAB804E52490CC550044CDEF /* MA_ThreadDemoVC.m in Sources */,
 				AA62BDDC247B72D4008BED5B /* main.m in Sources */,
+				AAB804E2248F7AE30044CDEF /* MA_Thread.m in Sources */,
 				AA62BDCE247B72D2008BED5B /* SceneDelegate.m in Sources */,
 				AA62BDE4247B76C6008BED5B /* MA_ThreadVC.m in Sources */,
 			);
