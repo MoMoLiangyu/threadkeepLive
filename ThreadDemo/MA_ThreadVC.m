@@ -8,6 +8,7 @@
 
 #import "MA_ThreadVC.h"
 #import "MA_ThreadDemoVC.h"
+#import "MA_Model.h"
 
 #import "MA_Thread.h"
 
@@ -19,13 +20,61 @@
 
 @implementation MA_ThreadVC
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"ThreadDemo";
     self.view.backgroundColor = [UIColor whiteColor];
-    [self loadMaUI];
+    NSMutableArray *tempArray = [NSMutableArray array];
+    dispatch_group_t group = dispatch_group_create();
+     dispatch_queue_t queue = dispatch_queue_create("upImageQueue", DISPATCH_QUEUE_CONCURRENT);
+    //加锁，是为了防止资源竞争
+    NSConditionLock *imageLock = [[NSConditionLock alloc] initWithCondition:0];
+    NSLock *lock = [[NSLock alloc] init];
+    
+    NSDate *startTime = [NSDate dateWithTimeIntervalSinceNow:0];
+    
+    for (int i = 0; i < 9; i++) {
+         dispatch_group_enter(group);
+         dispatch_group_async(group, queue, ^{
+             [NSThread sleepForTimeInterval:(10 - i)];
+             [lock lock];
+//             [imageLock lockWhenCondition:i];
+             NSLog(@"执行了====== %d",i+1);
+             MA_Model *model = [[MA_Model alloc] init];
+             model.name = [NSString stringWithFormat:@"meili %d",(i+1)];
+             model.indx = [NSNumber numberWithInt:(i+1)];
+             [tempArray addObject:model];
+//             [imageLock unlockWithCondition:i+1];
+             [lock unlock];
+             dispatch_group_leave(group);
+         });
+        
+    }
+    
+    
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+     
+        NSDate *endTime = [NSDate dateWithTimeIntervalSinceNow:0];
+        NSLog(@"startTime == %@ endTime ==%@",startTime,endTime);
+        NSLog(@"%@",tempArray);
+        NSArray *resultArray =  [tempArray sortedArrayUsingComparator:^NSComparisonResult(MA_Model *obj1, MA_Model  *obj2) {
+//            NSLog(@"obj1 == %@ obj2 ==%@",obj1,obj2);
+            
+            return [obj1.indx compare:obj2.indx];
+        }];
+        
+//         NSLog(@"%@",resultArray);
+        
+    });
+    
+
+   
+    
+//    [self loadMaUI];
 }
+
 
 - (void)loadMaUI
 {

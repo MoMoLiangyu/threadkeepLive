@@ -16,10 +16,11 @@
 @property (nonatomic, assign) BOOL isNeedRunloopStop;//
 @property (nonatomic, strong) UIScrollView *scrollView;//
 
-
+@property (nonatomic, weak) id tempStr;//
 @end
 
 @implementation MA_ThreadDemoVC
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,7 +36,28 @@
     
     self.isNeedRunloopStop = NO;
     
-    [self loadThtreadAction];
+//    [self loadThtreadAction];
+    
+    @autoreleasepool {
+        _tempStr = [NSString stringWithFormat:@"xiaomage"];
+//         reference = tempStr;
+       
+    }
+     NSLog(@"tempStr  %@",_tempStr);
+    
+   
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"viewWillAppear  %@",self.tempStr);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+     NSLog(@"viewDidAppear  %@",self.tempStr);
 }
 
 - (void)loadThtreadAction
